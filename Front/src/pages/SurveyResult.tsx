@@ -2,12 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Space } from "antd";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import {
-  DoughnutChart,
-  Layout,
-  MainImage,
-  ProgressiveBar,
-} from "../components/common";
+import { Layout, MainImage, ProgressiveBar } from "../components/common";
 import Image from "../components/common/Image";
 import Text from "../components/common/Text";
 import RecommendItemList from "../components/survey/RecommendItemList";
@@ -315,10 +310,9 @@ export default function AnalysisResult() {
       <TitleText>당신의 독자 유형은?</TitleText>
       {result?.getFromSpring?.[0].myType?.image ? (
         <MainImage
-          src={
-            "https://j8a302.p.ssafy.io/images/" +
+          src={`${import.meta.env.VITE_IMAGE_URL}/${
             result?.getFromSpring[0].myType.image
-          }
+          }`}
           size={80}
         />
       ) : (

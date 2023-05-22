@@ -34,7 +34,7 @@ const StyledImage = styled.div<{
   background-color: #eeeeee;
   background-image: ${(props) =>
     props.type === "userType"
-      ? `url(https://j8a302.p.ssafy.io/images/${props.url})`
+      ? `url(${import.meta.env.VITE_IMAGE_URL}/${props.url})`
       : `url(${props.url})`};
   background-position: center;
   background-size: cover;
