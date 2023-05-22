@@ -115,7 +115,7 @@ DATABASES = {
         'NAME': 'toonbti',
         'USER': 'unni',
         'PASSWORD': 'xmrghka302',
-        'HOST': '43.200.255.205',
+        'HOST': '3.35.214.235',
         'PORT': '3333',
     }
 }
