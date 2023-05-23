@@ -13,8 +13,8 @@
 
    1. [Ground Rules](#💚-ground-rules)
    1. [Git 활용했어요](#🧡-git-활용했어요)
-   1. [Notion 활용했어요](#❤️-notion-활용했어요)
    1. [팀원 구성 및 소개](#💙-팀원-구성-및-소개)
+   1. [팀원 역할](#❤️-팀원-역할)
 
 1. [프로젝트](#3-프로젝트)
    1. [기획의도](#💚-기획의도)
@@ -177,10 +177,6 @@ Reference
 - [Semi-linear merge](https://devblogs.microsoft.com/devops/pull-requests-with-rebase/)
 - [Continuous Integration](https://martinfowler.com/articles/continuousIntegration.html)
 
-### ❤️ Notion 활용했어요
-
-TODO:
-
 ### 💙 팀원 구성 및 소개
 
 - **B.E**
@@ -198,6 +194,54 @@ TODO:
   | 김태원 | F.E 팀장, 프론트 관리 및 개발  | taw4654@gmail.com        | https://github.com/DanKim0213 |
   | 윤지영 | 디자인, 공통 layout 개발 및 QA | diniless7@gmail.com      | https://github.com/yoonjyjy   |
   | 노현정 | React 개발 및 기술 연구        | nohhyunjeong93@gmail.com | https://github.com/isabel-noh |
+
+### ❤️ 팀원 역할
+
+**김태원**
+
+- [graphql](https://graphql.org/)을 백엔드와 프론트엔드에 도입 및 [graphql-codegen](https://the-guild.dev/graphql/codegen)을 활용하여 설정
+- [Intersection Observer](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)를 활용하여 무한 스크롤 기능을 웹툰 목록 페이지에 적용
+- 취향 테스트 페이지에서 연관 웹툰 아이템을 불러올때, 중복된 웹툰을 [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) 자료형을 사용하여 거르기
+- [TypeScript](https://www.typescriptlang.org/)를 프론트엔드에 적용하여 컴포넌트별 propstype 및 graphql API에서 빠른 디버깅과 협업에 안정성을 추구
+- [Github flow](https://ujuc.github.io/2015/12/16/git-flow-github-flow-gitlab-flow/)를 도입하여 팀 프로젝트 코드관리를 도맡아 진행
+
+**노현정**
+
+- [Apollo Clinet](https://www.apollographql.com/docs/react/)를 사용하여 [GraphQL](https://graphql.org/) API 호출 및 통신
+- [ChartJs](https://www.chartjs.org/docs/latest/)를 활용한 데이터 시각화
+- 컴포넌트 재사용성 증진을 위한 컴포넌트 공통화
+- Styled-components의 [Themeprovider](https://styled-components.com/docs/api#themeprovider)을 활용한 공통 스타일 속성 관리
+
+**윤지영**
+
+- 전체적 디자인 : 피그마 작성 및 [Styled-Component](https://styled-components.com/)를 이용하여 전체적 디자인 구성
+- 독자 유형 테스트 페이지 : 유형 테스트 설계 및 유형별 설명 기획 및 useState를 이용하여 유형테스트 화면 구현
+- 독자 유형 테스트 결과 페이지 : 해당하는 독자 유형과 나와 잘 맞는 유형, 가장 많은 유형 등 구현
+- 전체 유형 보기 : 각 유형별 결과 모달로 확인 가능하도록 구현
+- 카카오톡 API를 활용한 [공유하기](https://developers.kakao.com/docs/latest/ko/message/rest-api) 기능 구현
+- 취향 분석 결과 페이지 : 유형별 독자 맞춤 추천 웹툰 리스트 구현 및 Api 연결
+
+**권성은**
+
+- Java 및 [Springboot](https://spring.io/projects/spring-boot)를 활용한 Backend REST API 서버 구현
+- [Docker](https://www.docker.com/) 및 [Jenkins](https://www.jenkins.io/)를 활용한 CI/CD 구축
+- [AWS EC2](https://aws.amazon.com/ko/ec2/) 및 [Nginx](https://www.nginx.com/) 서버 관리
+- python 데이터 수집 및 전처리
+- MySQL DB 설계
+- 포팅 메뉴얼 문서화
+
+**김진호**
+
+- [BeautifulSoup](https://beautiful-soup-4.readthedocs.io/en/latest/), [Selenium](https://www.selenium.dev/) 라이브러리를 활용한 웹툰 데이터 자동 크롤링
+- [Django](https://www.djangoproject.com/)와 [Pandas](https://pandas.pydata.org/), [Cosine](https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.distance.cosine.html#scipy.spatial.distance.cosine) 라이브러리를 활용한 웹툰 추천 알고리즘 구축
+- Django에서 Graphql을 활용한 API 설계
+
+**전주영**
+
+- 관계형 데이터베이스를 설계하고 관리
+- 크롤링한 데이터를 파이썬을 이용해 전처리
+- 전처리한 데이터를 데이터베이스에 저장
+- notion, google Drive를 활용해서 산출물 정리
 
 ## **3. 프로젝트**
 
