@@ -211,6 +211,7 @@ Reference
 - [ChartJs](https://www.chartjs.org/docs/latest/)를 활용한 데이터 시각화
 - 컴포넌트 재사용성 증진을 위한 컴포넌트 공통화
 - Styled-components의 [Themeprovider](https://styled-components.com/docs/api#themeprovider)을 활용한 공통 스타일 속성 관리
+- 디자인 QA 및 수정
 
 **윤지영**
 
