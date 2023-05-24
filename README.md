@@ -224,7 +224,7 @@ Reference
 
 **권성은**
 
-- Java 및 [Springboot](https://spring.io/projects/spring-boot)를 활용한 Backend REST API 서버 구현
+- Java 및 [Springboot](https://spring.io/projects/spring-boot)를 활용한 GraphQL API 구현
 - [Docker](https://www.docker.com/) 및 [Jenkins](https://www.jenkins.io/)를 활용한 CI/CD 구축
 - [AWS EC2](https://aws.amazon.com/ko/ec2/) 및 [Nginx](https://www.nginx.com/) 서버 관리
 - python 데이터 수집 및 전처리
