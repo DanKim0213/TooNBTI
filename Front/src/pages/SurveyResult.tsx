@@ -219,7 +219,7 @@ export default function AnalysisResult() {
   const navigate = useNavigate();
   const { state: webtoonPk } = useLocation();
 
-  const [tempResult, setTempResult] = useState(TEMP);
+  // const [tempResult, setTempResult] = useState(TEMP);
   const [result, setResult] = useState(RESULT); // TODO: type 지정
   const [kakaoRatio, setKaKaoRatio] = useState<number>(0);
   const [naverRatio, setNaverRatio] = useState<number>(0);
@@ -230,7 +230,7 @@ export default function AnalysisResult() {
   const resultRef = useRef<any>([]);
   const genreAnalysisRef = useRef<GenreListType[]>([]);
   const [rankList, setRankList] = useState<GenreListType[]>([]);
-  const [doughnutChartData, setDoughnutChartData] = useState<watchedData[]>([]);
+  // const [doughnutChartData, setDoughnutChartData] = useState<watchedData[]>([]);
 
   // 비율 계산
   function calRatio(c: string, a: number, b: number): void {
@@ -271,7 +271,7 @@ export default function AnalysisResult() {
     {
       client: django,
       onCompleted(data: Result2Type) {
-        setResult({ ...tempResultRef.current, ...data });
+        // setResult({ ...tempResultRef.current, ...data });
         resultRef.current = { ...tempResultRef.current, ...data };
         const temp: GenreListType[] = [];
         for (let i = 1; i < 11; i++) {
@@ -295,10 +295,8 @@ export default function AnalysisResult() {
           );
         }
 
-        setGenreAnalysis(temp);
+        // setGenreAnalysis(temp);
         genreAnalysisRef.current = temp;
-        console.log(resultRef.current);
-        console.log(genreAnalysisRef.current);
       },
     }
   );
