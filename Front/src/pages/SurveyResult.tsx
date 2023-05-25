@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Button, Space } from "antd";
 import styled from "styled-components";
 import { motion } from "framer-motion";
@@ -204,6 +204,12 @@ const RESULT: ResultType = {
   ],
 };
 
+interface watchedData {
+  id: number;
+  name: string;
+  count: number;
+}
+
 const topN = 5;
 
 export default function AnalysisResult() {
@@ -220,7 +226,11 @@ export default function AnalysisResult() {
   const [finishedRatio, setFinishedRatio] = useState<number>(0);
   const [unfinishedRatio, setUnfinishedRatio] = useState<number>(0);
   const [genreAnalysis, setGenreAnalysis] = useState<GenreListType[]>([]);
+  const tempResultRef = useRef<any>();
+  const resultRef = useRef<any>([]);
+  const genreAnalysisRef = useRef<GenreListType[]>([]);
   const [rankList, setRankList] = useState<GenreListType[]>([]);
+  const [doughnutChartData, setDoughnutChartData] = useState<watchedData[]>([]);
 
   // 비율 계산
   function calRatio(c: string, a: number, b: number): void {
@@ -261,19 +271,22 @@ export default function AnalysisResult() {
     {
       client: django,
       onCompleted(data: Result2Type) {
-        setResult({ ...tempResult, ...data });
+        setResult({ ...tempResultRef.current, ...data });
+        resultRef.current = { ...tempResultRef.current, ...data };
         const temp: GenreListType[] = [];
-        console.log(result.getFromSpring[0].genreRatio);
         for (let i = 1; i < 11; i++) {
-          if ((result.getFromSpring[0].genreRatio?.[i] as number) !== 0) {
+          if (
+            (resultRef.current.getFromSpring[0].genreRatio?.[i] as number) !== 0
+          ) {
             temp.push({
               id: i,
               name: GENRE[i - 1],
-              count: result?.getFromSpring?.[0]?.genreRatio?.[i] as number,
+              count: resultRef.current?.getFromSpring?.[0]?.genreRatio?.[
+                i
+              ] as number,
             });
           }
           // setGenreAnalysis(tempAll);
-          setGenreAnalysis(temp);
           setRankList(
             temp
               .slice()
@@ -281,6 +294,11 @@ export default function AnalysisResult() {
               .splice(0, 3)
           );
         }
+
+        setGenreAnalysis(temp);
+        genreAnalysisRef.current = temp;
+        console.log(resultRef.current);
+        console.log(genreAnalysisRef.current);
       },
     }
   );
@@ -295,7 +313,8 @@ export default function AnalysisResult() {
       },
       client: django,
       onCompleted(data) {
-        setTempResult(data as TempResultType);
+        tempResultRef.current = data;
+        // setTempResult(data as TempResultType);
         if (
           data?.getFromSpring?.[0]?.platformRatio &&
           data?.getFromSpring?.[0]?.doneRatio
@@ -321,7 +340,7 @@ export default function AnalysisResult() {
             data?.getFromSpring[0].doneRatio[0] as number
           );
         }
-
+        // data.getFromSpring?.[0]?.genreRatio;
         const keywordsList = data?.myKeyword?.[0]?.myKeywordId;
         const genrePk = data?.myGenre?.[0]?.genreId;
         fetchTestResult2({
@@ -371,7 +390,11 @@ export default function AnalysisResult() {
         webtoonPk: webtoonPk,
       },
     });
+    // console.log(result.getFromSpring[0].genreRatio);
+    // setDoughnutChartData(genreAnalysis);
   }, []);
+
+  // useEffect(() => {}, []);
 
   const loading =
     saveWebtoonLoading || fetchTestResult1Loading || fetchTestResult2Loading;
@@ -628,7 +651,7 @@ export default function AnalysisResult() {
           <div>
             {result.getFromSpring[0].genreRatio && (
               <GenreGraphSection className="genre_graph">
-                <DoughnutChartResult dataList={genreAnalysis} />
+                <DoughnutChartResult dataList={genreAnalysisRef.current} />
               </GenreGraphSection>
             )}
             <section className="genre_table">
