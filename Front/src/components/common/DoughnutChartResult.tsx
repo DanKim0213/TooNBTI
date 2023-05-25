@@ -57,7 +57,6 @@ export default function DoughnutChartResult({ dataList }: PropType) {
     { id: number; name: string; count: number }[]
   >([]);
   useEffect(() => {
-    console.log(dataList);
     setNewDataList(dataList);
     const temp: number[] = [];
     dataList.map((el) => {
